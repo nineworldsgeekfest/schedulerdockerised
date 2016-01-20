@@ -29,7 +29,8 @@ ENV PATH /usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/s
 COPY scheduler/.ruby-version /app/.ruby-version
 COPY scheduler/.ruby-gemset /app/.ruby-gemset
 COPY scheduler/Gemfile /app/Gemfile
+COPY scheduler/Gemfile.lock /app/Gemfile.lock
 
 RUN [ "/bin/bash" , "-l" , "-c" , "source /etc/profile && rvm use ruby-2.2.1@scheduler && rvm install $(cat .ruby-version) && rvm use --default $(cat .ruby-version) && rvm gemset use $(cat .ruby-gemset) && gem install bundler && bundle install" ]
 
-CMD ["/bin/bash" , "-l" , "-c" , "source /etc/profile && rvm use ruby-2.2.1@scheduler && bundle exec rake rake spec"]
+CMD ["/bin/bash" , "-l" , "-c" , "source /etc/profile && rvm use ruby-2.2.1@scheduler && bundle exec rake db:create && bundle exec rake spec"]
