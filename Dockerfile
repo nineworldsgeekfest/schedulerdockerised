@@ -33,6 +33,4 @@ COPY scheduler/Gemfile.lock /app/Gemfile.lock
 
 RUN [ "/bin/bash" , "-l" , "-c" , "source /etc/profile && rvm use ruby-2.2.1@scheduler && rvm install $(cat .ruby-version) && rvm use --default $(cat .ruby-version) && rvm gemset use $(cat .ruby-gemset) && gem install bundler && bundle install" ]
 
-ENV DATABASE_URL postgresql://postgres@schedulerdockerised_db_1/
-
 CMD ["/bin/bash" , "-l" , "-c" , "source /etc/profile && rvm use ruby-2.2.1@scheduler && bundler exec rake spec"]

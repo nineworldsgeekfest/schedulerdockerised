@@ -8,3 +8,6 @@ scheduler:
                 - ./scheduler:/app
         ports:
                 - "3000:3000"
+        environment:
+                DATABASE_URL: "postgresql://postgres@schedulerdockerised_db_1/"
+
