@@ -5,14 +5,13 @@ Dockerisation of [Nineworlds Scheduling solution](https://github.com/nineworldsg
 
 * To get started, you should [Install docker](https://docs.docker.com/engine/installation/) and then [Install Docker Compose](https://docs.docker.com/compose/install/).
 * check the [Nineworlds Scheduler](https://github.com/nineworldsgeekfest/scheduler) out into the working directory. 
-* Following that you should be able to `docker-compose build` and `docker-compose up`. 
+* Following that you should be able to `docker-compose build` and `docker-compose --x-networking up`. 
 
 ## Development process
 
 * All work should be performed on a separate branch, which is then pushed to the Github repository.
-* A pull request into master should then be created for that branch, which will trigger Hound, Travis and Coveralls.
+* A pull request into master should then be created for that branch
 * The pull request will be reviewed by another committer, and either merged, or have further changes requested.
-* Pull requests which either break Travis or cause Hound style violations will not be merged until these are resolved.
 
 ## Contributor Code of Conduct
 
